@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Bourque.GridUpload.Data.Abstractions\Bourque.GridUpload.Data.Abstractions.csproj" />
+    <ProjectReference Include="..\Bourque.GridUpload.Data.EntityFramework\Bourque.GridUpload.Data.EntityFramework.csproj" />
+  </ItemGroup>
+
 </Project>

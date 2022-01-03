@@ -15,4 +15,9 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="6.0.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Bourque.GridUpload.Api\Bourque.GridUpload.Api.csproj" />
+    <ProjectReference Include="..\Bourque.GridUpload.Data.Services\Bourque.GridUpload.Data.Services.csproj" />
+  </ItemGroup>
+
 </Project>

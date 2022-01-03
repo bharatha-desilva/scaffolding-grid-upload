@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -8,6 +8,11 @@
 
   <ItemGroup>
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Bourque.GridUpload.Data.EntityFramework\Bourque.GridUpload.Data.EntityFramework.csproj" />
+    <ProjectReference Include="..\Bourque.GridUpload.Data.Services\Bourque.GridUpload.Data.Services.csproj" />
   </ItemGroup>
 
 </Project>
