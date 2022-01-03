@@ -1,8 +1,15 @@
+using Bourque.GridUpload.Data.EntityFramework.Context;
+using Bourque.GridUpload.Data.EntityFramework.Data;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddDbContext<GridUploadContext>(options => {
+        options.UseSqlServer( builder.Configuration.GetConnectionString("TcmsConnectionString")); 
+    }
+);
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -31,5 +38,7 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
+DBPreparation.Prepare(app, app.Environment.IsProduction());
 
 app.Run();
