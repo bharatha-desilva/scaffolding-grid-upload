@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testExecutions version="1">
+  <file path="F:\Xeynergy\Project 2 - Excel template upload\Github Bharatha\scaffolding-grid-upload\Bourque.GridUpload.App\ClientApp\src\app\counter\counter.component.spec.ts">
+    <testCase name="CounterComponent should display a title" duration="166"/>
+    <testCase name="CounterComponent should start with count 0, then increments by 1 when clicked" duration="93"/>
+  </file>
+</testExecutions>
