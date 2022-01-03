@@ -5,6 +5,11 @@ using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Host.ConfigureAppConfiguration((hostingContext, configuration) =>
+{
+    configuration.AddEnvironmentVariables("GridUpload_");
+});
+
 // Add services to the container.
 builder.Services.AddDbContext<GridUploadContext>(options => {
         options.UseSqlServer( builder.Configuration.GetConnectionString("TcmsConnectionString")); 

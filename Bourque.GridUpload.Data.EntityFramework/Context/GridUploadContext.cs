@@ -23,9 +23,15 @@ namespace Bourque.GridUpload.Data.EntityFramework.Context
 
         public virtual DbSet<Template> Templates { get; set; }
 
+        public virtual DbSet<Entity> Entities { get; set; }
+
+        public virtual DbSet<TemplateEntity> TemplateEntities { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.MapTemplate();
+            modelBuilder.MapEntity();
+            modelBuilder.MapTemplateEntity();
         }
     }
 }

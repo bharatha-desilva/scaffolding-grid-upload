@@ -21,6 +21,32 @@ namespace Bourque.GridUpload.Data.EntityFramework.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
+            modelBuilder.Entity("Bourque.GridUpload.Data.Models.DbModels.Entity", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnName("id");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("EntityName")
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("entity_name");
+
+                    b.Property<string>("ProcessURL")
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("process_url");
+
+                    b.Property<string>("ValidateURL")
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("validate_url");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("GRID_UPLOAD_ENTITY");
+                });
+
             modelBuilder.Entity("Bourque.GridUpload.Data.Models.DbModels.Template", b =>
                 {
                     b.Property<int>("Id")
@@ -41,6 +67,51 @@ namespace Bourque.GridUpload.Data.EntityFramework.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("GRID_UPLOAD_TEMPLATE", (string)null);
+                });
+
+            modelBuilder.Entity("Bourque.GridUpload.Data.Models.DbModels.TemplateEntity", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnName("id");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("EntityId")
+                        .HasColumnType("int")
+                        .HasColumnOrder(1);
+
+                    b.Property<int>("TemplateId")
+                        .HasColumnType("int")
+                        .HasColumnOrder(0);
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("EntityId");
+
+                    b.HasIndex("TemplateId");
+
+                    b.ToTable("GRID_UPLOAD_TEMPLATE_ENTITY");
+                });
+
+            modelBuilder.Entity("Bourque.GridUpload.Data.Models.DbModels.TemplateEntity", b =>
+                {
+                    b.HasOne("Bourque.GridUpload.Data.Models.DbModels.Entity", "Entity")
+                        .WithMany()
+                        .HasForeignKey("EntityId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Bourque.GridUpload.Data.Models.DbModels.Template", "Template")
+                        .WithMany()
+                        .HasForeignKey("TemplateId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Entity");
+
+                    b.Navigation("Template");
                 });
 #pragma warning restore 612, 618
         }
