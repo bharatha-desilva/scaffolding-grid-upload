@@ -1,0 +1,58 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30114.105
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bourque.GridUpload.Api", "Bourque.GridUpload.Api\Bourque.GridUpload.Api.csproj", "{9EF4D19A-B3BB-42E5-91BC-DDF207FE6CB4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bourque.GridUpload.App", "Bourque.GridUpload.App\Bourque.GridUpload.App.csproj", "{3DE4261B-4199-47A6-A288-1387372EDB15}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bourque.GridUpload.Data.Abstractions", "Bourque.GridUpload.Data.Abstractions\Bourque.GridUpload.Data.Abstractions.csproj", "{6DF8CF65-40ED-4157-A861-2384C95C20A7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bourque.GridUpload.Data.EntityFramework", "Bourque.GridUpload.Data.EntityFramework\Bourque.GridUpload.Data.EntityFramework.csproj", "{AB6F2E2D-CEE6-41BF-BF78-71274DC5A22B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bourque.GridUpload.Data.Models", "Bourque.GridUpload.Data.Models\Bourque.GridUpload.Data.Models.csproj", "{603CA24E-8363-43AD-8721-6AF3296CE11D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bourque.GridUpload.Data.Services", "Bourque.GridUpload.Data.Services\Bourque.GridUpload.Data.Services.csproj", "{7D9DF725-B5A0-4D41-9D9E-5C4220E439EB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bourque.GridUpload.Data.Services.Tests", "Bourque.GridUpload.Data.Services.Tests\Bourque.GridUpload.Data.Services.Tests.csproj", "{B20AF60A-2183-460A-9AE2-FBBB65C301DA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9EF4D19A-B3BB-42E5-91BC-DDF207FE6CB4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9EF4D19A-B3BB-42E5-91BC-DDF207FE6CB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9EF4D19A-B3BB-42E5-91BC-DDF207FE6CB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9EF4D19A-B3BB-42E5-91BC-DDF207FE6CB4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3DE4261B-4199-47A6-A288-1387372EDB15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3DE4261B-4199-47A6-A288-1387372EDB15}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3DE4261B-4199-47A6-A288-1387372EDB15}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3DE4261B-4199-47A6-A288-1387372EDB15}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6DF8CF65-40ED-4157-A861-2384C95C20A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DF8CF65-40ED-4157-A861-2384C95C20A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DF8CF65-40ED-4157-A861-2384C95C20A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DF8CF65-40ED-4157-A861-2384C95C20A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB6F2E2D-CEE6-41BF-BF78-71274DC5A22B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB6F2E2D-CEE6-41BF-BF78-71274DC5A22B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB6F2E2D-CEE6-41BF-BF78-71274DC5A22B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB6F2E2D-CEE6-41BF-BF78-71274DC5A22B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{603CA24E-8363-43AD-8721-6AF3296CE11D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{603CA24E-8363-43AD-8721-6AF3296CE11D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{603CA24E-8363-43AD-8721-6AF3296CE11D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{603CA24E-8363-43AD-8721-6AF3296CE11D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7D9DF725-B5A0-4D41-9D9E-5C4220E439EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D9DF725-B5A0-4D41-9D9E-5C4220E439EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D9DF725-B5A0-4D41-9D9E-5C4220E439EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D9DF725-B5A0-4D41-9D9E-5C4220E439EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B20AF60A-2183-460A-9AE2-FBBB65C301DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B20AF60A-2183-460A-9AE2-FBBB65C301DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B20AF60A-2183-460A-9AE2-FBBB65C301DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B20AF60A-2183-460A-9AE2-FBBB65C301DA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
