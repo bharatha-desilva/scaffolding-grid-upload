@@ -6,22 +6,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Bourque.GridUpload.Data.Models.DbModels
+namespace Bourque.GridUpload.Data.Models.DbModels;
+
+[Table("GRID_UPLOAD_ENTITY")]
+public class Entity
 {
-    [Table("GRID_UPLOAD_ENTITY")]
-    public class Entity
-    {
-        [Key]
-        [Column("id")]
-        public int Id { get; set; }
+    [Key] [Column("id")] public int Id { get; set; }
 
-        [Column("entity_name")]
-        public string EntityName { get; set; }
+    [Column("entity_name")] public string EntityName { get; set; }
 
-        [Column("validate_url")]
-        public string ValidateURL { get; set; }
+    [Column("validate_url")] public string ValidateURL { get; set; }
 
-        [Column("process_url")]
-        public string ProcessURL { get; set; }
-    }
+    [Column("process_url")] public string ProcessURL { get; set; }
 }

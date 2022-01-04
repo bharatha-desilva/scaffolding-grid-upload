@@ -3,8 +3,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Bourque.GridUpload.Data.Models.DbModels;
 
-[Table("GRID_UPLOAD_TEMPLATE_ENTITY")]
-public class TemplateEntity
+[Table("GRID_UPLOAD_TEMPLATE_APPLICATION")]
+public class TemplateApplication
 {
     [Key] 
     [Column("id")] 
@@ -14,11 +14,11 @@ public class TemplateEntity
     [Column("template_id", Order = 0)]
     public int TemplateId { get; set; }
 
-    [ForeignKey("Entity")]
-    [Column("entity_id", Order = 1)]
-    public int EntityId { get; set; }
+    [ForeignKey("ApplicationId")]
+    [Column("application_id", Order = 1)]
+    public int ApplicationId { get; set; }
 
     public Template Template { get; set; }
 
-    public Entity Entity { get; set; }
+    public ApplicationCode ApplicationCode { get; set; }
 }
