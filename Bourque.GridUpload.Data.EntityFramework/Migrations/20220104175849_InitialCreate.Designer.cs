@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Bourque.GridUpload.Data.EntityFramework.Migrations
 {
     [DbContext(typeof(GridUploadContext))]
-    [Migration("20220104172447_InitialCreate")]
+    [Migration("20220104175849_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
