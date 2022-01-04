@@ -42,7 +42,7 @@ module.exports = {
     coverageDirectory: 'coverage',
 
     // An array of regexp pattern strings used to skip coverage collection
-    coveragePathIgnorePatterns: ['<rootDir>/projects/bds/shipper-bi/src/lib/models/'],
+    coveragePathIgnorePatterns: ['<rootDir>/projects/bds/grid-upload/src/lib/models/'],
 
     // Indicates which provider should be used to instrument code for coverage
     coverageProvider: 'v8',

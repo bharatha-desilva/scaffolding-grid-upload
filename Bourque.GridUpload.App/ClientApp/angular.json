@@ -3,7 +3,7 @@
     "version": 1,
     "newProjectRoot": "projects",
     "projects": {
-        "Bourque.GridUpload.App": {
+        "ClientApp": {
             "projectType": "application",
             "schematics": {
                 "@schematics/angular:application": {
@@ -18,7 +18,7 @@
                     "builder": "@angular-devkit/build-angular:browser",
                     "options": {
                         "progress": false,
-                        "outputPath": "dist",
+                        "outputPath": "dist/ClientApp",
                         "index": "src/index.html",
                         "main": "src/main.ts",
                         "polyfills": "src/polyfills.ts",
@@ -31,7 +31,7 @@
                             },
                             {
                                 "glob": "**/*",
-                                "input": "projects/bds/shipper-bi/assets",
+                                "input": "projects/bds/grid-upload/assets",
                                 "output": "/assets/"
                             },
                             {
@@ -83,7 +83,8 @@
                             "vendorChunk": true,
                             "extractLicenses": false,
                             "sourceMap": true,
-                            "namedChunks": true
+                            "namedChunks": true,
+                            "tsConfig": "tsconfig.dev.json"
                         }
                     },
                     "defaultConfiguration": "production"
@@ -92,10 +93,10 @@
                     "builder": "@angular-devkit/build-angular:dev-server",
                     "configurations": {
                         "production": {
-                            "browserTarget": "Bourque.GridUpload.App:build:production"
+                            "browserTarget": "ClientApp:build:production"
                         },
                         "development": {
-                            "browserTarget": "Bourque.GridUpload.App:build:development",
+                            "browserTarget": "ClientApp:build:development",
                             "proxyConfig": "proxy.conf.js"
                         }
                     },
@@ -104,7 +105,7 @@
                 "extract-i18n": {
                     "builder": "@angular-devkit/build-angular:extract-i18n",
                     "options": {
-                        "browserTarget": "Bourque.GridUpload.App:build"
+                        "browserTarget": "ClientApp:build"
                     }
                 },
                 "lint": {
@@ -140,9 +141,49 @@
                     }
                 }
             }
+        },
+        "@bds/grid-upload": {
+            "projectType": "library",
+            "root": "projects/bds/grid-upload",
+            "sourceRoot": "projects/bds/grid-upload/src",
+            "prefix": "lib",
+            "architect": {
+                "build": {
+                    "builder": "@angular-devkit/build-angular:ng-packagr",
+                    "options": {
+                        "project": "projects/bds/grid-upload/ng-package.json"
+                    },
+                    "configurations": {
+                        "production": {
+                            "tsConfig": "projects/bds/grid-upload/tsconfig.lib.prod.json"
+                        },
+                        "development": {
+                            "tsConfig": "projects/bds/grid-upload/tsconfig.lib.json"
+                        }
+                    },
+                    "defaultConfiguration": "production"
+                },
+                "test": {
+                    "builder": "@angular-devkit/build-angular:karma",
+                    "options": {
+                        "main": "projects/bds/grid-upload/src/test.ts",
+                        "tsConfig": "projects/bds/grid-upload/tsconfig.spec.json",
+                        "karmaConfig": "projects/bds/grid-upload/karma.conf.js"
+                    }
+                },
+                "lint": {
+                    "builder": "@angular-eslint/builder:lint",
+                    "options": {
+                        "lintFilePatterns": [
+                            "projects/bds/grid-upload/**/*.ts",
+                            "projects/bds/grid-upload/**/*.html"
+                        ]
+                    }
+                }
+            }
         }
     },
-    "defaultProject": "Bourque.GridUpload.App",
+    "defaultProject": "ClientApp",
     "cli": {
         "analytics": false,
         "defaultCollection": "@angular-eslint/schematics"

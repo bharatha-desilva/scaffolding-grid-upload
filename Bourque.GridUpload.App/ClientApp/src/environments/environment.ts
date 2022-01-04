@@ -23,9 +23,9 @@ export const environment = {
         silentRedirectUri: 'http://localhost:4200/silent-refresh.html',
     },
     bdsInternalApiUri: 'https://bds-azsrvc-bds-internal-api.bdsapigtwy.p.azurewebsites.net',
-    shipperBiOptions: {
-        shipperBiApiUri: 'https://bourque-gridupload-api-dev.azurewebsites.net',
-        shipperBiRoles: {
+    gridUploadOptions: {
+        gridUploadApiUri: 'https://bourque-gridupload-api-dev.azurewebsites.net',
+        gridUploadRoles: {
             roles: {
                 'shipper-bi-admin': ['shipper-bi.admin.navigation'],
                 'shipper-bi-user': ['shipper-bi.report.navigation'],

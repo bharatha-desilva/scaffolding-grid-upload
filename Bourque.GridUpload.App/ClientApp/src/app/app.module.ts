@@ -15,6 +15,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { environment } from 'src/environments/environment';
+import { GridUploadModule, GridUploadOptions } from '@bds/grid-upload';
 
 @NgModule({
     declarations: [
@@ -30,6 +31,7 @@ import { environment } from 'src/environments/environment';
         BdsUiModule,
         BdsUiSidebarModule,
         BrowserAnimationsModule,
+        GridUploadModule,
         FontAwesomeModule,
         HttpClientModule,
         FormsModule,
@@ -43,10 +45,10 @@ import { environment } from 'src/environments/environment';
             provide: AuthorizeOptions,
             useValue: environment.authOptions,
         },
-        // {
-        //   provide: ShipperBiOptions,
-        //   useValue: environment.shipperBiOptions,
-        // },
+        {
+            provide: GridUploadOptions,
+            useValue: environment.gridUploadOptions,
+        },
     ],
     bootstrap: [AppComponent],
 })
