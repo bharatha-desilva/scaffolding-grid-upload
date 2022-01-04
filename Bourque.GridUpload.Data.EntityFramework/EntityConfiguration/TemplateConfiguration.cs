@@ -21,5 +21,9 @@ public class TemplateConfiguration : IEntityTypeConfiguration<Template>
         builder.HasKey(e => e.Id);
 
         builder.ToTable("GRID_UPLOAD_TEMPLATE");
+
+        builder.HasMany(e => e.Columns)
+            .WithOne(e => e.Template)
+            .HasForeignKey(e => e.TemplateId);
     }
 }

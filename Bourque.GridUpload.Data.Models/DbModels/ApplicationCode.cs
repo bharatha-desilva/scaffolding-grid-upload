@@ -11,5 +11,5 @@ public class ApplicationCode
     public int Id { get; set; }
 
     [Column("application_name")] 
-    public int ApplicationName { get; set; }
+    public string ApplicationName { get; set; }
 }

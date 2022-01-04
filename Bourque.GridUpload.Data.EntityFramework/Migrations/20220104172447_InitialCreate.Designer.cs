@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Bourque.GridUpload.Data.EntityFramework.Migrations
 {
     [DbContext(typeof(GridUploadContext))]
-    [Migration("20220104125908_InitialCreate")]
+    [Migration("20220104172447_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -32,8 +32,8 @@ namespace Bourque.GridUpload.Data.EntityFramework.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<int>("ApplicationName")
-                        .HasColumnType("int")
+                    b.Property<string>("ApplicationName")
+                        .HasColumnType("nvarchar(max)")
                         .HasColumnName("application_name");
 
                     b.HasKey("Id");
@@ -284,7 +284,7 @@ namespace Bourque.GridUpload.Data.EntityFramework.Migrations
                         .IsRequired();
 
                     b.HasOne("Bourque.GridUpload.Data.Models.DbModels.Template", "Template")
-                        .WithMany()
+                        .WithMany("Columns")
                         .HasForeignKey("TemplateId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -311,6 +311,11 @@ namespace Bourque.GridUpload.Data.EntityFramework.Migrations
                     b.Navigation("Entity");
 
                     b.Navigation("Template");
+                });
+
+            modelBuilder.Entity("Bourque.GridUpload.Data.Models.DbModels.Template", b =>
+                {
+                    b.Navigation("Columns");
                 });
 #pragma warning restore 612, 618
         }

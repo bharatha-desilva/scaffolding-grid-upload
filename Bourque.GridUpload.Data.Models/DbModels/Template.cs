@@ -20,4 +20,6 @@ public class Template
     
     [Column("template_owner")] 
     public string TemplateOwner { get; set; }
+
+    public ICollection<TemplateColumn> Columns;
 }
