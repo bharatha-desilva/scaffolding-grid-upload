@@ -20,24 +20,13 @@ export class DevExtremeDemoComponent implements OnInit {
 
   events: Array<string> = [];
   constructor() {
-    this.states = /*service.getStates()*/[];
+    this.states = [];
     this.template = new TemplateDef();
     this.template.keyField = "ID";
     this.template.columns = [
-      { property: "Prefix", caption: "Title" },
-      { property: "FirstName" },
-      { property: "LastName" },
-      { property: "BirthDate", dataType: DataType.DATE },
-      { property: "HireDate", dataType: DataType.DATE },
-      { property: "Position" },
-      { property: "StateID", caption: "State", dataLookup:
-          {
-            property: "ID",
-            caption: "Name",
-            data: this.states
-          } },
+      { property: "Dummy", caption: "Dummy" }
     ];
-    this.dataSource = /*service.getEmployees()*/[];
+    this.dataSource = [];
   }
 
   ngOnInit(): void {
