@@ -24,8 +24,11 @@ export const environment = {
         gridUploadApiUri: 'https://bourque-gridupload-api-dev.azurewebsites.net',
         gridUploadRoles: {
             roles: {
-                'shipper-bi-admin': ['shipper-bi.admin.navigation'],
-                'shipper-bi-user': ['shipper-bi.report.navigation'],
+                'shipper-bi-admin': [
+                    'grid-upload.template.management',
+                    'grid-upload.template.upload',
+                ],
+                'shipper-bi-user': ['grid-upload.template.upload'],
             },
         },
     },

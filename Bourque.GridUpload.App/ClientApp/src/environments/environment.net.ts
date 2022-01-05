@@ -2,10 +2,9 @@
 // `ng build` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
-//TODO: Change the variables
 export const environment = {
     production: false,
-    environmentName: 'Development',
+    environmentName: '.NET Development',
     authOptions: {
         applicationName: 'shipperbi-app',
         authorityUri: 'https://auth.railcl.com',
@@ -19,13 +18,13 @@ export const environment = {
             'bds-internal-api.read-customers',
             'bds-internal-api.read-users',
         ],
-        redirectUri: 'http://localhost:4200/authentication/login-callback',
-        postLogoutRedirectUri: 'http://localhost:4200/authentication/logout-callback',
-        silentRedirectUri: 'http://localhost:4200/silent-refresh.html',
+        redirectUri: 'https://localhost:44388/authentication/login-callback',
+        postLogoutRedirectUri: 'https://localhost:44388/authentication/logout-callback',
+        silentRedirectUri: 'https://localhost:44388/silent-refresh.html',
     },
     bdsInternalApiUri: 'https://bds-azsrvc-bds-internal-api.bdsapigtwy.p.azurewebsites.net',
-    gridUploadOptions: {
-        gridUploadApiUri: 'https://bourque-gridupload-api-dev.azurewebsites.net',
+    GridUploadOptions: {
+        gridUploadApiUri: 'https://localhost:7060',
         gridUploadRoles: {
             roles: {
                 'shipper-bi-admin': [
@@ -37,7 +36,6 @@ export const environment = {
         },
     },
 };
-
 /*
  * For easier debugging in development mode, you can import the following file
  * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.

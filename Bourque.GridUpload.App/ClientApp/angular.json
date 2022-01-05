@@ -85,6 +85,21 @@
                             "sourceMap": true,
                             "namedChunks": true,
                             "tsConfig": "tsconfig.dev.json"
+                        },
+                        "net": {
+                            "buildOptimizer": false,
+                            "optimization": false,
+                            "vendorChunk": true,
+                            "extractLicenses": false,
+                            "sourceMap": true,
+                            "namedChunks": true,
+                            "tsConfig": "tsconfig.dev.json",
+                            "fileReplacements": [
+                                {
+                                    "replace": "src/environments/environment.ts",
+                                    "with": "src/environments/environment.net.ts"
+                                }
+                            ]
                         }
                     },
                     "defaultConfiguration": "production"
@@ -98,6 +113,9 @@
                         "development": {
                             "browserTarget": "ClientApp:build:development",
                             "proxyConfig": "proxy.conf.js"
+                        },
+                        "net": {
+                            "browserTarget": "ClientApp:build:net"
                         }
                     },
                     "defaultConfiguration": "development"

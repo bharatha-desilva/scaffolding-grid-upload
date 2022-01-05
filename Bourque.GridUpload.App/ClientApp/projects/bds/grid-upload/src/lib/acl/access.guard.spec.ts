@@ -7,8 +7,8 @@ import { Privilege } from '../models/privilege';
 import { of } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
 
-const hasPrivilege = Privilege.REPORT_LIST;
-const hasNoPrivilege = Privilege.REPORT_CREATE;
+const hasPrivilege = Privilege.TEMPLATE_MANAGEMENT;
+const hasNoPrivilege = Privilege.TEMPLATE_UPLOAD;
 
 class MockAccessService {
     hasPrivilege(p: Privilege) {

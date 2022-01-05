@@ -1,6 +1,6 @@
 import { Component, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { GridUploadOptions } from '@bds/grid-upload';
+import { GridUploadOptions } from '../../models/grid-upload-options';
 
 @Component({
     selector: 'app-fetch-data',

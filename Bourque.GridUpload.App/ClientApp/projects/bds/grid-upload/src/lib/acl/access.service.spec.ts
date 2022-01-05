@@ -20,8 +20,8 @@ class MockAuthorizeService {
     }
 }
 
-const hasPrivilege = Privilege.REPORT_LIST;
-const hasNoPrivilege = Privilege.REPORT_CREATE;
+const hasPrivilege = Privilege.TEMPLATE_MANAGEMENT;
+const hasNoPrivilege = Privilege.TEMPLATE_UPLOAD;
 
 describe('AccessService', () => {
     let service: AccessService;
@@ -37,14 +37,11 @@ describe('AccessService', () => {
                 {
                     provide: GridUploadOptions,
                     useValue: {
-                        shipperBiApiUri: 'http://localhost:8080',
-                        shipperBiRoles: {
+                        gridUploadApiUri: 'http://localhost:8080',
+                        gridUploadRoles: {
                             roles: {
                                 'shipper-bi-admin': [hasPrivilege],
-                                'shipper-bi-user': [
-                                    'shipper-bi.report.navigation',
-                                    'shipper-bi.report.read',
-                                ],
+                                'shipper-bi-user': ['grid-upload.template.upload'],
                             },
                         },
                     },

@@ -7,23 +7,26 @@ import { BdsUiModule, BdsUiSidebarModule } from '@bds/ui';
 import { BDSINTERNAL_API_BASE_URL } from '@bds/internal-api';
 import { THIS_APPLICATION_CODE, THIS_APPLICATION_NAME } from '@bds/core';
 import { AppComponent } from './app.component';
-import { NavMenuComponent } from './nav-menu/nav-menu.component';
-import { HomeComponent } from './home/home.component';
-import { CounterComponent } from './counter/counter.component';
-import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { AppRoutingModule } from './app-routing.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { environment } from 'src/environments/environment';
 import { GridUploadModule, GridUploadOptions } from '@bds/grid-upload';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDividerModule } from '@angular/material/divider';
+import { HomeScreenModule } from './screens/home-screen/home-screen.module';
+import { SidebarContentComponent } from './sidebar-content/sidebar-content.component';
 
 @NgModule({
     declarations: [
         AppComponent,
-        NavMenuComponent,
-        HomeComponent,
-        CounterComponent,
-        FetchDataComponent,
+        // NavMenuComponent,
+        // HomeComponent,
+        // CounterComponent,
+        // FetchDataComponent,
+        SidebarContentComponent,
     ],
     imports: [
         BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -32,7 +35,12 @@ import { GridUploadModule, GridUploadOptions } from '@bds/grid-upload';
         BdsUiSidebarModule,
         BrowserAnimationsModule,
         GridUploadModule,
+        MatButtonModule,
+        MatDividerModule,
+        MatMenuModule,
+        MatExpansionModule,
         FontAwesomeModule,
+        HomeScreenModule,
         HttpClientModule,
         FormsModule,
         AppRoutingModule,
