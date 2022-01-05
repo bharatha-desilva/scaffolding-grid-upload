@@ -1,7 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testExecutions version="1">
-  <file path="F:\Xeynergy\Project 2 - Excel template upload\Github Bharatha\scaffolding-grid-upload\Bourque.GridUpload.App\ClientApp\src\app\counter\counter.component.spec.ts">
-    <testCase name="CounterComponent should display a title" duration="166"/>
-    <testCase name="CounterComponent should start with count 0, then increments by 1 when clicked" duration="93"/>
+  <file path="F:\Xeynergy\Project 2 - Excel template upload\Github Bharatha\scaffolding-grid-upload\Bourque.GridUpload.App\ClientApp\projects\bds\grid-upload\src\lib\acl\access.service.spec.ts">
+    <testCase name="AccessService should be created" duration="137"/>
+    <testCase name="AccessService role should be decoded" duration="20"/>
+    <testCase name="AccessService should have privilege" duration="11"/>
+    <testCase name="AccessService should not have privilege" duration="29"/>
+  </file>
+  <file path="F:\Xeynergy\Project 2 - Excel template upload\Github Bharatha\scaffolding-grid-upload\Bourque.GridUpload.App\ClientApp\projects\bds\grid-upload\src\lib\acl\access.guard.spec.ts">
+    <testCase name="AccessGuard should be created" duration="40"/>
+    <testCase name="AccessGuard should activate" duration="14"/>
+    <testCase name="AccessGuard should not activate" duration="8"/>
+    <testCase name="AccessGuard should activate child" duration="28"/>
+    <testCase name="AccessGuard should not activate child" duration="7"/>
+  </file>
+  <file path="F:\Xeynergy\Project 2 - Excel template upload\Github Bharatha\scaffolding-grid-upload\Bourque.GridUpload.App\ClientApp\src\app\screens\error\error.component.spec.ts">
+    <testCase name="ErrorComponent should create" duration="229"/>
+  </file>
+  <file path="F:\Xeynergy\Project 2 - Excel template upload\Github Bharatha\scaffolding-grid-upload\Bourque.GridUpload.App\ClientApp\src\app\screens\home-screen\home-screen.component.spec.ts">
+    <testCase name="HomeScreenComponent should create" duration="257"/>
+  </file>
+  <file path="F:\Xeynergy\Project 2 - Excel template upload\Github Bharatha\scaffolding-grid-upload\Bourque.GridUpload.App\ClientApp\src\app\sidebar-content\sidebar-content.component.spec.ts">
+    <testCase name="SidebarContentComponent should create" duration="882"/>
+  </file>
+  <file path="F:\Xeynergy\Project 2 - Excel template upload\Github Bharatha\scaffolding-grid-upload\Bourque.GridUpload.App\ClientApp\projects\bds\grid-upload\src\lib\grid-upload.component.spec.ts">
+    <testCase name="GridUploadComponent should create" duration="54"/>
+  </file>
+  <file path="F:\Xeynergy\Project 2 - Excel template upload\Github Bharatha\scaffolding-grid-upload\Bourque.GridUpload.App\ClientApp\projects\bds\grid-upload\src\lib\containers\grid-data-upload\grid-data-upload.component.spec.ts">
+    <testCase name="GridDataUploadComponent should create" duration="263"/>
+  </file>
+  <file path="F:\Xeynergy\Project 2 - Excel template upload\Github Bharatha\scaffolding-grid-upload\Bourque.GridUpload.App\ClientApp\src\app\app.component.spec.ts">
+    <testCase name="AppComponent should create the app" duration="425"/>
+  </file>
+  <file path="F:\Xeynergy\Project 2 - Excel template upload\Github Bharatha\scaffolding-grid-upload\Bourque.GridUpload.App\ClientApp\projects\bds\grid-upload\src\lib\containers\fetch-data\fetch-data.component.spec.ts">
+    <testCase name="FetchDataComponent should create" duration="155"/>
   </file>
 </testExecutions>

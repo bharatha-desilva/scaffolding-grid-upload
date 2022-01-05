@@ -7,6 +7,7 @@ import { SidebarContentComponent } from './sidebar-content.component';
 import { Observable, of } from 'rxjs';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { AccessService, Role, GridUploadModule, GridUploadOptions } from '@bds/grid-upload';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 class MockAccessService {
     hasPrivilege(): Observable<boolean> {
@@ -31,6 +32,7 @@ describe('SidebarContentComponent', () => {
                 FontAwesomeModule,
                 HttpClientTestingModule,
                 GridUploadModule,
+                MatExpansionModule,
             ],
             providers: [
                 {

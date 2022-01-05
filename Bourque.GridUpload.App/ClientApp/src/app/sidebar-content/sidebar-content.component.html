@@ -9,10 +9,10 @@
     style="color: #ced4da"
 >
     <mat-expansion-panel-header expandedHeight="100%" collapsedHeight="100%">
-        <div bdsSidebarItem title="Template Upload">
+        <div bdsSidebarItem title="Grid Upload">
             <div>
-                <fa-icon bdsSidebarItemIcon [icon]="iconDatabase" [fixedWidth]="true"></fa-icon>
-                <span bdsSidebarItemText>Template Upload</span>
+                <fa-icon bdsSidebarItemIcon [icon]="iconfileUpload" [fixedWidth]="true"></fa-icon>
+                <span bdsSidebarItemText>Grid Upload</span>
                 <fa-icon
                     [icon]="iconCaretRight"
                     transform="rotate-45 down-4 right-9 shrink-3"
@@ -27,18 +27,8 @@
         [routerLink]="'grid-upload/upload'"
         [routerLinkActive]="'active'"
     >
-        <fa-icon bdsSidebarItemIcon [icon]="iconChart" [fixedWidth]="true" size="2x"></fa-icon>
-        <p class="text-wrap">Upload</p>
-    </a>
-    <a
-        class="sub-navigation-title"
-        bdsSidebarItem
-        title="upload"
-        [routerLink]="'grid-upload/counter'"
-        [routerLinkActive]="'active'"
-    >
-        <fa-icon bdsSidebarItemIcon [icon]="iconChart" [fixedWidth]="true" size="2x"></fa-icon>
-        <p class="text-wrap">Counter</p>
+        <fa-icon bdsSidebarItemIcon [icon]="iconfile" [fixedWidth]="true" size="2x"></fa-icon>
+        <p class="text-wrap">Grid Upload</p>
     </a>
     <a
         class="sub-navigation-title"

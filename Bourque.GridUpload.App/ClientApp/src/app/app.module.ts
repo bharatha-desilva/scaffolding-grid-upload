@@ -10,7 +10,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { environment } from 'src/environments/environment';
+import { environment } from '../environments/environment';
 import { GridUploadModule, GridUploadOptions } from '@bds/grid-upload';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatMenuModule } from '@angular/material/menu';
@@ -18,18 +18,12 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
 import { HomeScreenModule } from './screens/home-screen/home-screen.module';
 import { SidebarContentComponent } from './sidebar-content/sidebar-content.component';
+import { BdsSwitchboardModule } from '@bds/application-pathing';
 
 @NgModule({
-    declarations: [
-        AppComponent,
-        // NavMenuComponent,
-        // HomeComponent,
-        // CounterComponent,
-        // FetchDataComponent,
-        SidebarContentComponent,
-    ],
+    declarations: [AppComponent, SidebarContentComponent],
     imports: [
-        BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
+        BrowserModule,
         AuthorizeModule,
         BdsUiModule,
         BdsUiSidebarModule,
@@ -43,6 +37,7 @@ import { SidebarContentComponent } from './sidebar-content/sidebar-content.compo
         HomeScreenModule,
         HttpClientModule,
         FormsModule,
+        BdsSwitchboardModule,
         AppRoutingModule,
     ],
     providers: [

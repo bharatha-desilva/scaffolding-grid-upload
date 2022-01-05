@@ -3,6 +3,8 @@ import {
     faCaretRight,
     faChartBar,
     faDatabase,
+    faFileAlt,
+    faFileUpload,
     faHome,
     faTimesCircle,
 } from '@fortawesome/pro-solid-svg-icons';
@@ -18,4 +20,6 @@ export class SidebarContentComponent {
     iconChart = faChartBar;
     iconCircleX = faTimesCircle;
     iconDatabase = faDatabase;
+    iconfile = faFileAlt;
+    iconfileUpload = faFileUpload;
 }

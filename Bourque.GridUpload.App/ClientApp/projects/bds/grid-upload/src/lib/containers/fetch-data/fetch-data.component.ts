@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { GridUploadOptions } from '../../models/grid-upload-options';
 
 @Component({
-    selector: 'app-fetch-data',
+    selector: 'lib-fetch-data',
     templateUrl: './fetch-data.component.html',
 })
 @Injectable({

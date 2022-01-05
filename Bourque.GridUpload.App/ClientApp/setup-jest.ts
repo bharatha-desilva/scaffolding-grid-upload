@@ -18,3 +18,9 @@ style.innerHTML = `
 }`;
 // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
 global['document'].head.appendChild(style);
+
+Object.defineProperty(window.self, 'crypto', {
+    value: {
+        getRandomValues: (arr: string) => arr.length,
+    },
+});
