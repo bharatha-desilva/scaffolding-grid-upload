@@ -21,6 +21,8 @@ public partial class GridUploadContext : DbContext
     public virtual DbSet<ApplicationCode> Applications { get; set; }
     
     public virtual DbSet<ColumnMetadata> ColumnMetadata { get; set; }
+    
+    public virtual DbSet<ColumnValidationRule> ColumnValidationRules { get; set; }
 
     public virtual DbSet<ColumnMetadataApplication> ColumnMetadataApplications { get; set; }
     

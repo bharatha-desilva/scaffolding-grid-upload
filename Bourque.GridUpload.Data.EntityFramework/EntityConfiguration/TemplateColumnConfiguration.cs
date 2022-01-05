@@ -42,7 +42,7 @@ public class TemplateColumnConfiguration : IEntityTypeConfiguration<TemplateColu
             .OnDelete(DeleteBehavior.Cascade)
             .IsRequired();
 
-        builder.Navigation(e => e.ColumnMetadata);
+        builder.Navigation(e => e.ColumnMetadata).AutoInclude();
 
         builder.Navigation(e => e.Template);
     }

@@ -2,6 +2,8 @@ using Bourque.GridUpload.Data.EntityFramework.Context;
 using Bourque.GridUpload.Data.EntityFramework.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -27,6 +29,13 @@ builder.Services.AddSwaggerGen(options =>
         Title = "Bourque Grid Upload",
         Description = "Template management and template driven data upload solution.",
     });
+});
+
+builder.Services.AddMvc().AddNewtonsoftJson(options =>
+{
+    options.SerializerSettings.Converters.Add(new StringEnumConverter());
+    options.SerializerSettings.NullValueHandling = NullValueHandling.Ignore;
+    options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
 });
 
 var app = builder.Build();

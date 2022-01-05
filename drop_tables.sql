@@ -1,0 +1,39 @@
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[__EFMigrationsHistory]') AND type in (N'U'))
+DROP TABLE [dbo].[__EFMigrationsHistory]
+    GO
+
+    IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[GRID_UPLOAD_COLUMN_METADATA_APPLICATION]') AND type in (N'U'))
+DROP TABLE [dbo].[GRID_UPLOAD_COLUMN_METADATA_APPLICATION]
+    GO
+
+    IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[GRID_UPLOAD_TEMPLATE_COLUMN]') AND type in (N'U'))
+DROP TABLE [dbo].[GRID_UPLOAD_TEMPLATE_COLUMN]
+    GO
+
+    IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[GRID_UPLOAD_COLUMN_VALIDATION_RULE]') AND type in (N'U'))
+DROP TABLE [dbo].[GRID_UPLOAD_COLUMN_VALIDATION_RULE]
+    GO
+
+    IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[GRID_UPLOAD_COLUMN_METADATA]') AND type in (N'U'))
+DROP TABLE [dbo].[GRID_UPLOAD_COLUMN_METADATA]
+    GO
+
+    IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[GRID_UPLOAD_TEMPLATE_APPLICATION]') AND type in (N'U'))
+DROP TABLE [dbo].[GRID_UPLOAD_TEMPLATE_APPLICATION]
+    GO
+
+    IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[GRID_UPLOAD_APPLICATION_CODE]') AND type in (N'U'))
+DROP TABLE [dbo].[GRID_UPLOAD_APPLICATION_CODE]
+    GO
+
+    IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[GRID_UPLOAD_TEMPLATE_ENTITY]') AND type in (N'U'))
+DROP TABLE [dbo].[GRID_UPLOAD_TEMPLATE_ENTITY]
+    GO
+
+    IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[GRID_UPLOAD_ENTITY]') AND type in (N'U'))
+DROP TABLE [dbo].[GRID_UPLOAD_ENTITY]
+    GO
+
+    IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[GRID_UPLOAD_TEMPLATE]') AND type in (N'U'))
+DROP TABLE [dbo].[GRID_UPLOAD_TEMPLATE]
+    GO

@@ -19,5 +19,11 @@ public class ColumnMetadataConfiguration : IEntityTypeConfiguration<ColumnMetada
         builder.HasKey(e => e.Id);
 
         builder.ToTable("GRID_UPLOAD_COLUMN_METADATA");
+
+        builder.HasMany(e => e.ValidationRules)
+            .WithOne(e => e.ColumnMetadata)
+            .HasForeignKey(e => e.ColumnMetadataId);
+
+        builder.Navigation(e => e.ValidationRules).AutoInclude();
     }
 }

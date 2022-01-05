@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Bourque.GridUpload.Data.EntityFramework.Migrations
 {
     [DbContext(typeof(GridUploadContext))]
-    [Migration("20220104175849_InitialCreate")]
+    [Migration("20220105122753_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -96,6 +96,39 @@ namespace Bourque.GridUpload.Data.EntityFramework.Migrations
                     b.HasIndex("ColumnMetadataId");
 
                     b.ToTable("GRID_UPLOAD_COLUMN_METADATA_APPLICATION", (string)null);
+                });
+
+            modelBuilder.Entity("Bourque.GridUpload.Data.Models.DbModels.ColumnValidationRule", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnName("id");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("ColumnMetadataId")
+                        .HasColumnType("int")
+                        .HasColumnName("column_metadata_id");
+
+                    b.Property<string>("Message")
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("message");
+
+                    b.Property<string>("Pattern")
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("pattern");
+
+                    b.Property<string>("Type")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("type");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ColumnMetadataId");
+
+                    b.ToTable("GRID_UPLOAD_COLUMN_VALIDATION_RULE", (string)null);
                 });
 
             modelBuilder.Entity("Bourque.GridUpload.Data.Models.DbModels.Entity", b =>
@@ -256,6 +289,17 @@ namespace Bourque.GridUpload.Data.EntityFramework.Migrations
                     b.Navigation("ColumnMetadata");
                 });
 
+            modelBuilder.Entity("Bourque.GridUpload.Data.Models.DbModels.ColumnValidationRule", b =>
+                {
+                    b.HasOne("Bourque.GridUpload.Data.Models.DbModels.ColumnMetadata", "ColumnMetadata")
+                        .WithMany("ValidationRules")
+                        .HasForeignKey("ColumnMetadataId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("ColumnMetadata");
+                });
+
             modelBuilder.Entity("Bourque.GridUpload.Data.Models.DbModels.TemplateApplication", b =>
                 {
                     b.HasOne("Bourque.GridUpload.Data.Models.DbModels.ApplicationCode", "ApplicationCode")
@@ -311,6 +355,11 @@ namespace Bourque.GridUpload.Data.EntityFramework.Migrations
                     b.Navigation("Entity");
 
                     b.Navigation("Template");
+                });
+
+            modelBuilder.Entity("Bourque.GridUpload.Data.Models.DbModels.ColumnMetadata", b =>
+                {
+                    b.Navigation("ValidationRules");
                 });
 
             modelBuilder.Entity("Bourque.GridUpload.Data.Models.DbModels.Template", b =>

@@ -25,5 +25,7 @@ public class TemplateConfiguration : IEntityTypeConfiguration<Template>
         builder.HasMany(e => e.Columns)
             .WithOne(e => e.Template)
             .HasForeignKey(e => e.TemplateId);
+        
+        builder.Navigation(e => e.Columns);
     }
 }

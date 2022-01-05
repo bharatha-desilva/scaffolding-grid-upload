@@ -92,6 +92,28 @@ namespace Bourque.GridUpload.Data.EntityFramework.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "GRID_UPLOAD_COLUMN_VALIDATION_RULE",
+                columns: table => new
+                {
+                    id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    column_metadata_id = table.Column<int>(type: "int", nullable: false),
+                    type = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    pattern = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    message = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_GRID_UPLOAD_COLUMN_VALIDATION_RULE", x => x.id);
+                    table.ForeignKey(
+                        name: "FK_GRID_UPLOAD_COLUMN_VALIDATION_RULE_GRID_UPLOAD_COLUMN_METADATA_column_metadata_id",
+                        column: x => x.column_metadata_id,
+                        principalTable: "GRID_UPLOAD_COLUMN_METADATA",
+                        principalColumn: "id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "GRID_UPLOAD_TEMPLATE_APPLICATION",
                 columns: table => new
                 {
@@ -181,6 +203,11 @@ namespace Bourque.GridUpload.Data.EntityFramework.Migrations
                 column: "column_metadata_id");
 
             migrationBuilder.CreateIndex(
+                name: "IX_GRID_UPLOAD_COLUMN_VALIDATION_RULE_column_metadata_id",
+                table: "GRID_UPLOAD_COLUMN_VALIDATION_RULE",
+                column: "column_metadata_id");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_GRID_UPLOAD_TEMPLATE_APPLICATION_application_id",
                 table: "GRID_UPLOAD_TEMPLATE_APPLICATION",
                 column: "application_id");
@@ -215,6 +242,9 @@ namespace Bourque.GridUpload.Data.EntityFramework.Migrations
         {
             migrationBuilder.DropTable(
                 name: "GRID_UPLOAD_COLUMN_METADATA_APPLICATION");
+
+            migrationBuilder.DropTable(
+                name: "GRID_UPLOAD_COLUMN_VALIDATION_RULE");
 
             migrationBuilder.DropTable(
                 name: "GRID_UPLOAD_TEMPLATE_APPLICATION");

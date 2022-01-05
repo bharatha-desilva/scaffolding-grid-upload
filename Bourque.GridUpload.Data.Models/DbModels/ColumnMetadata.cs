@@ -1,4 +1,6 @@
-﻿namespace Bourque.GridUpload.Data.Models.DbModels;
+﻿using System.Collections.Generic;
+
+namespace Bourque.GridUpload.Data.Models.DbModels;
 
 public class ColumnMetadata
 {
@@ -9,4 +11,6 @@ public class ColumnMetadata
     public string ColumnCellName { get; set; }
 
     public string ColumnDataType { get; set; }
+
+    public ICollection<ColumnValidationRule> ValidationRules { get; set; }
 }
