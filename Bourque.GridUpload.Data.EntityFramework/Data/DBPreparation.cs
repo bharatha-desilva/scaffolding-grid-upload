@@ -9,36 +9,37 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Bourque.GridUpload.Data.EntityFramework.Data
+namespace Bourque.GridUpload.Data.EntityFramework.Data;
+
+public static class DBPreparation
 {
-    public static class DBPreparation
+    public static void Prepare(IApplicationBuilder app,
+        bool isProd)
     {
-        public static void Prepare(IApplicationBuilder app, bool isProd)
-        {
-            using var serviceScop = app.ApplicationServices.CreateScope();
-            Migrate(serviceScop.ServiceProvider.GetService<GridUploadContext>(),
-                serviceScop.ServiceProvider.GetService<ILogger<GridUploadContext>>(),
-                isProd);
-        }
+        using var serviceScop = app.ApplicationServices.CreateScope();
+        Migrate(serviceScop.ServiceProvider.GetService<GridUploadContext>(),
+            serviceScop.ServiceProvider.GetService<ILogger<GridUploadContext>>(),
+            isProd);
+    }
 
-        private static void Migrate(GridUploadContext context, ILogger<GridUploadContext> logger, bool isProd)
+    private static void Migrate(GridUploadContext context,
+        ILogger<GridUploadContext> logger,
+        bool isProd)
+    {
+        if (isProd)
         {
-            if (isProd)
+            logger.LogInformation("--> Attempting to apply migrations...");
+            try
             {
-                logger.LogInformation("--> Atempting to apply migrations...");
-                try
-                {
-                    context.Database.Migrate();
-                }
-                catch (Exception ex)
-                {
-                    logger.LogError($"--> Could not migrate due to {ex.Message}");
-                }
+                context.Database.Migrate();
             }
-
-            // Do some data seeding here if required,
-            //context.SaveChanges();
-
+            catch (Exception ex)
+            {
+                logger.LogError($"--> Could not migrate due to {ex.Message}");
+            }
         }
+
+        // Do some data seeding here if required,
+        //context.SaveChanges();
     }
 }

@@ -20,8 +20,17 @@ import { HomeScreenModule } from './screens/home-screen/home-screen.module';
 import { SidebarContentComponent } from './sidebar-content/sidebar-content.component';
 import { BdsSwitchboardModule } from '@bds/application-pathing';
 
+import { TemplateDataEditComponent } from './data/template-data-edit.component';
+import { DevExtremeModule, DxButtonModule, DxDataGridModule } from 'devextreme-angular';
+import { DevExtremeDemoComponent } from './grid-demo/dev-extreme-demo.component';
+
 @NgModule({
-    declarations: [AppComponent, SidebarContentComponent],
+    declarations: [
+        AppComponent,
+        SidebarContentComponent,
+        TemplateDataEditComponent,
+        DevExtremeDemoComponent,
+    ],
     imports: [
         BrowserModule,
         AuthorizeModule,
@@ -39,6 +48,9 @@ import { BdsSwitchboardModule } from '@bds/application-pathing';
         FormsModule,
         BdsSwitchboardModule,
         AppRoutingModule,
+        DxDataGridModule,
+        DxButtonModule,
+        DevExtremeModule,
     ],
     providers: [
         { provide: BDSINTERNAL_API_BASE_URL, useValue: environment.bdsInternalApiUri },

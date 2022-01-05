@@ -1,0 +1,21 @@
+.container-main {
+    height: 360px;
+    margin-bottom: 30px;
+}
+.container-template {
+    width: 49%;
+    height: 100%;
+    float: left;
+}
+.template-text {
+    height: 100%;
+}
+.container-data {
+    width: 49%;
+    height: 100%;
+    float: right;
+    margin-left: 2%;
+}
+.data-text {
+    height: 100%;
+}

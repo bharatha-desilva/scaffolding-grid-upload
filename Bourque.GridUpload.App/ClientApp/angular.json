@@ -48,6 +48,9 @@
                             "src/assets"
                         ],
                         "styles": [
+                            "node_modules/devextreme/dist/css/dx.common.css",
+                            "node_modules/devextreme/dist/css/dx.light.css",
+                            "node_modules/bootstrap/dist/css/bootstrap.min.css",
                             "./node_modules/@bds/ui/assets/scss/from-rt/bootstrap-custom.scss",
                             "./node_modules/@bds/ui/assets/scss/bds-layout.scss",
                             "src/styles.scss"

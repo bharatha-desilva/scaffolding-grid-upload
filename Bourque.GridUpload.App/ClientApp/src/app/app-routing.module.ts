@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { DevExtremeDemoComponent } from './grid-demo/dev-extreme-demo.component';
 
 const routes: Routes = [
     {
@@ -7,6 +8,7 @@ const routes: Routes = [
         redirectTo: '/home',
         pathMatch: 'full',
     },
+    { path: 'dev-extreme', component: DevExtremeDemoComponent },
     {
         path: 'error',
         loadChildren: () => import('./screens/error/error.module').then((m) => m.ErrorModule),
