@@ -1,0 +1,54 @@
+<dx-data-grid
+  id="gridContainer"
+  [dataSource]="dataSource"
+  [keyExpr]="template.keyField"
+  [allowColumnReordering]="true"
+  [showBorders]="true"
+  [errorRowEnabled]="true"
+  [focusedRowEnabled]="true"
+  [hoverStateEnabled]="true"
+
+  (onCellPrepared)="onCellPrepared($event)"
+  (onRowClick)="onRowClick($event)"
+  (onSaved)="onSaved()"
+>
+  <dxo-paging [enabled]="true" [pageSize]="5"></dxo-paging>
+  <dxo-editing
+    mode="row"
+    startEditAction="dblClick"
+    [allowUpdating]="allowUpdating"
+    [allowDeleting]="true"
+    [allowAdding]="true"
+    [useIcons]="true"
+  >
+  </dxo-editing>
+  <dxi-column type="buttons" [width]="110">
+    <dxi-button name="edit"></dxi-button>
+    <dxi-button name="delete"></dxi-button>
+    <dxi-button
+      hint="Clone"
+      icon="copy"
+    ></dxi-button>
+  </dxi-column>
+
+  <dxi-column *ngFor="let columnDef of template.columns"
+              [dataField]="columnDef.property"
+              [caption]="columnDef.caption"
+              [dataType]="columnDef.dataType" hidingPriority="">
+    <dxo-lookup *ngIf="columnDef.dataLookup" [dataSource]="columnDef.dataLookup.data"
+                [displayExpr]="columnDef.dataLookup.caption"
+                [valueExpr]="columnDef.dataLookup.property">
+    </dxo-lookup>
+    <dxi-validation-rule *ngFor="let rule of columnDef.validationRules"
+                         [type]="rule.type"
+                         [message]="rule.message"
+                         [pattern]="rule.pattern"
+                         [min]="rule.min"
+                         [max]="rule.max"
+                         [validationCallback]="rule.validate"
+                         [comparisonTarget]="rule.compare">
+
+    </dxi-validation-rule>
+  </dxi-column>
+
+</dx-data-grid>
