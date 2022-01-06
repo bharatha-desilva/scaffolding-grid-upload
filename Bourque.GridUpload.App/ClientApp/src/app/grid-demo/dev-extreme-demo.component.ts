@@ -1,12 +1,12 @@
-import { Component, OnInit } from '@angular/core';
-import { DataType, TemplateDef } from '../data/template-definition';
+import { Component } from '@angular/core';
+import { TemplateDef } from '../data/template-definition';
 
 @Component({
     selector: 'app-dev-extreme-demo',
     templateUrl: './dev-extreme-demo.component.html',
     styleUrls: ['./dev-extreme-demo.component.css'],
 })
-export class DevExtremeDemoComponent implements OnInit {
+export class DevExtremeDemoComponent {
     dataSource: any[];
     template!: TemplateDef;
     states: any[];
@@ -14,7 +14,7 @@ export class DevExtremeDemoComponent implements OnInit {
     templateJson!: string;
     dateJson!: string;
 
-    hasErrors: boolean = false;
+    hasErrors = false;
     selectedError!: string;
 
     events: Array<string> = [];
@@ -25,8 +25,6 @@ export class DevExtremeDemoComponent implements OnInit {
         this.template.columns = [{ property: 'Dummy', caption: 'Dummy' }];
         this.dataSource = [];
     }
-
-    ngOnInit(): void {}
 
     loadData() {
         this.template = JSON.parse(this.templateJson);
@@ -40,7 +38,7 @@ export class DevExtremeDemoComponent implements OnInit {
 
     allowUpdating(event: any) {
         console.log(event);
-        var data = event.row.data;
+        const data = event.row.data;
         if (data.Position !== 'CEO' && data.FirstName !== 'Kevin') {
             return false;
         }
@@ -65,7 +63,7 @@ export class DevExtremeDemoComponent implements OnInit {
     }
 
     onRowSelect(event: any) {
-        var data = event.data;
+        const data = event.data;
         this.hasErrors = data && data._control_data && data._control_data.hasErrors;
         this.selectedError = data?._control_data?.errors;
     }

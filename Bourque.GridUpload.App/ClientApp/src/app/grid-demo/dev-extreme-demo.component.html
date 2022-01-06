@@ -1,24 +1,26 @@
-<div id="events" class="container-main">
-    <div class="container-template">
-        <div class="caption">Template JSON</div>
-        <dx-text-area
-            id="templateJson"
-            class="template-text"
-            [(value)]="templateJson"
-        ></dx-text-area>
+<div class="m-2">
+    <div id="events" class="container-main">
+        <div class="container-template">
+            <div class="caption">Template JSON</div>
+            <dx-text-area
+                id="templateJson"
+                class="template-text"
+                [(value)]="templateJson"
+            ></dx-text-area>
+        </div>
+        <div class="container-data">
+            <div class="caption">Data Set JSON</div>
+            <dx-text-area id="dataJson" class="data-text" [(value)]="dateJson"></dx-text-area>
+        </div>
     </div>
-    <div class="container-data">
-        <div class="caption">Data Set JSON</div>
-        <dx-text-area id="dataJson" class="data-text" [(value)]="dateJson"></dx-text-area>
-    </div>
-</div>
-<dx-button id="loadButton" text="Load" (onClick)="loadData()"></dx-button>
-<span style="margin-left: 30px; background-color: red; color: antiquewhite" *ngIf="hasErrors">{{
-    selectedError
-}}</span>
+    <dx-button id="loadButton" text="Load" (onClick)="loadData()"></dx-button>
+    <span style="margin-left: 30px; background-color: red; color: antiquewhite" *ngIf="hasErrors">{{
+        selectedError
+    }}</span>
 
-<app-template-data-edit
-    [template]="template"
-    [dataSource]="dataSource"
-    (onRowSelect)="onRowSelect($event)"
-></app-template-data-edit>
+    <app-template-data-edit
+        [template]="template"
+        [dataSource]="dataSource"
+        (onRowSelect)="onRowSelect($event)"
+    ></app-template-data-edit>
+</div>

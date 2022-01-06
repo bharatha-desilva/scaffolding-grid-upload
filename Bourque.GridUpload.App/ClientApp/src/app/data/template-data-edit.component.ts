@@ -4,7 +4,6 @@ import { TemplateDef } from './template-definition';
 @Component({
     selector: 'app-template-data-edit',
     templateUrl: './template-data-edit.component.html',
-    styleUrls: ['./template-data-edit.component.scss'],
 })
 export class TemplateDataEditComponent implements OnInit {
     @Input()
@@ -20,12 +19,12 @@ export class TemplateDataEditComponent implements OnInit {
     ngOnInit(): void {}
 
     allowUpdating(event: any) {
-        var data = event.row.data;
+        const data = event.row.data;
         return data._control_data?.completed ? false : true;
     }
 
     onCellPrepared(event: any) {
-        var data = event.row?.data;
+        const data = event.row?.data;
         if (data && data._control_data && data._control_data.completed) {
             event.cellElement.style.backgroundColor = 'lightgrey';
         }

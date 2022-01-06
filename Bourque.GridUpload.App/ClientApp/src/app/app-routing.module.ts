@@ -8,7 +8,7 @@ const routes: Routes = [
         redirectTo: '/home',
         pathMatch: 'full',
     },
-    { path: 'dev-extreme', component: DevExtremeDemoComponent },
+    { path: 'grid-upload/dev-extreme', component: DevExtremeDemoComponent },
     {
         path: 'error',
         loadChildren: () => import('./screens/error/error.module').then((m) => m.ErrorModule),

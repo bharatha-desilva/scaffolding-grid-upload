@@ -33,6 +33,16 @@
     <a
         class="sub-navigation-title"
         bdsSidebarItem
+        title="grid demo"
+        [routerLink]="'grid-upload/dev-extreme'"
+        [routerLinkActive]="'active'"
+    >
+        <fa-icon bdsSidebarItemIcon [icon]="iconfile" [fixedWidth]="true" size="2x"></fa-icon>
+        <p class="text-wrap">Grid Demo</p>
+    </a>
+    <a
+        class="sub-navigation-title"
+        bdsSidebarItem
         title="upload"
         [routerLink]="'grid-upload/fetch-data'"
         [routerLinkActive]="'active'"
