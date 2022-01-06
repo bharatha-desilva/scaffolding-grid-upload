@@ -1,48 +1,45 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {TemplateDef} from "./template-definition";
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { TemplateDef } from './template-definition';
 
 @Component({
-  selector: 'app-template-data-edit',
-  templateUrl: './template-data-edit.component.html',
-  styleUrls: ['./template-data-edit.component.scss']
+    selector: 'app-template-data-edit',
+    templateUrl: './template-data-edit.component.html',
 })
 export class TemplateDataEditComponent implements OnInit {
+    @Input()
+    template!: TemplateDef;
 
-  @Input()
-  template!: TemplateDef;
+    @Input()
+    dataSource!: any[];
 
-  @Input()
-  dataSource!: any[];
+    @Output() onRowSelect: EventEmitter<any> = new EventEmitter();
 
-  @Output() onRowSelect: EventEmitter<any> = new EventEmitter();
+    constructor() {}
 
-  constructor() { }
+    ngOnInit(): void {}
 
-  ngOnInit(): void {
-  }
-
-  allowUpdating(event: any) {
-    var data = event.row.data;
-    return data._control_data?.completed ? false : true;
-  }
-
-  onCellPrepared(event: any) {
-    var data = event.row?.data;
-    if(data && data._control_data && data._control_data.completed) {
-      event.cellElement.style.backgroundColor = "lightgrey";
+    allowUpdating(event: any) {
+        const data = event.row.data;
+        return data._control_data?.completed ? false : true;
     }
-    if(data && data._control_data && data._control_data.hasErrors) {
-      event.cellElement.style.backgroundColor = "#ffc1bd";
-      event.cellElement.style.color = "#ff1100";
+
+    onCellPrepared(event: any) {
+        const data = event.row?.data;
+        if (data && data._control_data && data._control_data.completed) {
+            event.cellElement.style.backgroundColor = 'lightgrey';
+        }
+        if (data && data._control_data && data._control_data.hasErrors) {
+            event.cellElement.style.backgroundColor = '#ffc1bd';
+            event.cellElement.style.color = '#ff1100';
+        }
     }
-  }
 
-  onRowClick(event: any) {
-    this.onRowSelect.emit(event);
-  }
+    onRowClick(event: any) {
+        this.onRowSelect.emit(event);
+    }
 
-  onSaved() {
-    console.log("template: ",JSON.stringify(this.template, null, 4));
-    console.log("date : ", JSON.stringify(this.dataSource, null, 4));
-  }
+    onSaved() {
+        console.log('template: ', JSON.stringify(this.template, null, 4));
+        console.log('date : ', JSON.stringify(this.dataSource, null, 4));
+    }
 }
