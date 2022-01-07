@@ -23,7 +23,7 @@ export const environment = {
         silentRedirectUri: 'https://localhost:44388/silent-refresh.html',
     },
     bdsInternalApiUri: 'https://bds-azsrvc-bds-internal-api.bdsapigtwy.p.azurewebsites.net',
-    GridUploadOptions: {
+    gridUploadOptions: {
         gridUploadApiUri: 'https://localhost:7060',
         gridUploadRoles: {
             roles: {

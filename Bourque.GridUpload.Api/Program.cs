@@ -23,7 +23,9 @@ builder.Services.AddCors(options =>
     options.AddPolicy(name: "LocalDevOrigins",
         pb =>
         {
-            pb.WithOrigins("http://localhost:4200");
+            pb.AllowAnyOrigin()
+            .AllowAnyHeader()
+            .AllowAnyMethod();
         });
 });
 builder.Services.AddControllers();

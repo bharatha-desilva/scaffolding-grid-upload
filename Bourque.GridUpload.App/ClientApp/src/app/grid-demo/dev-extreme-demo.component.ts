@@ -2,6 +2,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { BackendTemplate, DataType, TemplateDef } from '../data/template-definition';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
+import { GridUploadOptions } from '../../../projects/bds/grid-upload/src/lib/models/grid-upload-options';
 
 @Component({
     selector: 'app-dev-extreme-demo',
@@ -23,10 +24,7 @@ export class DevExtremeDemoComponent implements OnInit {
     selectedError!: string;
 
     events: Array<string> = [];
-    constructor(
-        private readonly http: HttpClient,
-        @Inject('BASE_URL') private readonly baseUrl: string,
-    ) {
+    constructor(private readonly http: HttpClient, private readonly config: GridUploadOptions) {
         this.states = [];
         var temp = new TemplateDef();
         temp.keyField = 'ID';
@@ -37,13 +35,13 @@ export class DevExtremeDemoComponent implements OnInit {
 
     ngOnInit(): void {
         this.backendTemplates$ = this.http.get<BackendTemplate[]>(
-            `${this.baseUrl}/grid-upload-api/template`,
+            `${this.config.gridUploadApiUri}/template`,
         );
     }
 
     loadData() {
         this.template = this.http.get<TemplateDef>(
-            `${this.baseUrl}/grid-upload-api/template/${this.selectedBackendTemplateId}/dev-extreme-json`,
+            `${this.config.gridUploadApiUri}/template/${this.selectedBackendTemplateId}/dev-extreme-json`,
         );
         //this.template = JSON.parse(this.templateJson);
         this.dataSource = JSON.parse(this.dataSetFileContent);
