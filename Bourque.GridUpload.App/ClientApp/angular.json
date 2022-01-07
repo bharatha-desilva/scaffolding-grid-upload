@@ -6,9 +6,6 @@
         "ClientApp": {
             "projectType": "application",
             "schematics": {
-                "@schematics/angular:component": {
-                    "style": "scss"
-                },
                 "@schematics/angular:application": {
                     "strict": true
                 }
@@ -26,7 +23,6 @@
                         "main": "src/main.ts",
                         "polyfills": "src/polyfills.ts",
                         "tsConfig": "tsconfig.app.json",
-                        "inlineStyleLanguage": "scss",
                         "assets": [
                             {
                                 "glob": "**/*",
@@ -52,12 +48,12 @@
                             "src/assets"
                         ],
                         "styles": [
+                            "node_modules/devextreme/dist/css/dx.common.css",
+                            "node_modules/devextreme/dist/css/dx.light.css",
                             "node_modules/bootstrap/dist/css/bootstrap.min.css",
                             "./node_modules/@bds/ui/assets/scss/from-rt/bootstrap-custom.scss",
                             "./node_modules/@bds/ui/assets/scss/bds-layout.scss",
-                            "src/styles.scss",
-                            "node_modules/devextreme/dist/css/dx.common.css",
-                            "node_modules/devextreme/dist/css/dx.material.blue.light.css"
+                            "src/styles.scss"
                         ],
                         "scripts": []
                     },
@@ -67,7 +63,7 @@
                                 {
                                     "type": "initial",
                                     "maximumWarning": "500kb",
-                                    "maximumError": "10.5mb"
+                                    "maximumError": "10mb"
                                 },
                                 {
                                     "type": "anyComponentStyle",
@@ -136,6 +132,32 @@
                     "builder": "@angular-eslint/builder:lint",
                     "options": {
                         "lintFilePatterns": ["src/**/*.ts", "src/**/*.html"]
+                    }
+                },
+                "server": {
+                    "builder": "@angular-devkit/build-angular:server",
+                    "options": {
+                        "outputPath": "dist-server",
+                        "main": "src/main.ts",
+                        "tsConfig": "tsconfig.server.json"
+                    },
+                    "configurations": {
+                        "dev": {
+                            "optimization": true,
+                            "outputHashing": "all",
+                            "sourceMap": false,
+                            "namedChunks": false,
+                            "extractLicenses": true,
+                            "vendorChunk": true
+                        },
+                        "production": {
+                            "optimization": true,
+                            "outputHashing": "all",
+                            "sourceMap": false,
+                            "namedChunks": false,
+                            "extractLicenses": true,
+                            "vendorChunk": false
+                        }
                     }
                 }
             }
