@@ -17,7 +17,15 @@ builder.Services.AddDbContext<GridUploadContext>(options => {
         options.UseSqlServer( builder.Configuration.GetConnectionString("TcmsConnectionString")); 
     }
 );
-
+var devAllowSpecificOrigins = "LocalDevOrigins";
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: "LocalDevOrigins",
+        pb =>
+        {
+            pb.WithOrigins("http://localhost:4200");
+        });
+});
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -48,6 +56,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseCors(devAllowSpecificOrigins);
 
 app.UseAuthorization();
 

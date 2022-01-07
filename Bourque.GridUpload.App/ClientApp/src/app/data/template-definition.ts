@@ -1,3 +1,9 @@
+export class BackendTemplate {
+    id!: number;
+    templateDisplayName!: string;
+    templateOwner!: string;
+}
+
 export class TemplateDef {
     keyField!: string;
     columns!: TemplateColumnDef[];
