@@ -1,10 +1,9 @@
 .container-main {
-    height: 360px;
+    height: 60px;
     margin-bottom: 30px;
 }
 .container-template {
     width: 49%;
-    height: 100%;
     float: left;
 }
 .template-text {
@@ -12,10 +11,12 @@
 }
 .container-data {
     width: 49%;
-    height: 100%;
     float: right;
     margin-left: 2%;
 }
 .data-text {
+}
+
+.grid {
     height: 100%;
 }

@@ -23,6 +23,7 @@ import { BdsSwitchboardModule } from '@bds/application-pathing';
 import { TemplateDataEditComponent } from './data/template-data-edit.component';
 import { DevExtremeModule, DxButtonModule, DxDataGridModule } from 'devextreme-angular';
 import { DevExtremeDemoComponent } from './grid-demo/dev-extreme-demo.component';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 @NgModule({
     declarations: [
@@ -51,6 +52,7 @@ import { DevExtremeDemoComponent } from './grid-demo/dev-extreme-demo.component'
         DxDataGridModule,
         DxButtonModule,
         DevExtremeModule,
+        NgSelectModule,
     ],
     providers: [
         { provide: BDSINTERNAL_API_BASE_URL, useValue: environment.bdsInternalApiUri },

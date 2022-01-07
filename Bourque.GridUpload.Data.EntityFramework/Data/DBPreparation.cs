@@ -27,7 +27,7 @@ public static class DBPreparation
         ILogger<GridUploadContext> logger,
         bool isProd)
     {
-        //if (isProd)
+        if (isProd)
         {
             logger.LogInformation("--> Attempting to apply migrations...");
             try
@@ -55,6 +55,16 @@ public static class DBPreparation
 
             var col4 = CreateColumnMetadata("email", "Email", "string");
             context.ColumnMetadata.Add(col4);
+
+            var col5 = CreateColumnMetadata("address", "Address", "string");
+            context.ColumnMetadata.Add(col5);
+
+            var col6 = CreateColumnMetadata("city", "City", "string");
+            context.ColumnMetadata.Add(col6);
+
+            var col7 = CreateColumnMetadata("country", "Country", "string");
+            context.ColumnMetadata.Add(col7);
+            
             context.SaveChanges();
 
             
@@ -76,6 +86,18 @@ public static class DBPreparation
                 new () {ruleType = ValidationRuleType.email, message = "Email address is not valid."}
             });
             context.ColumnMetadata.Update(col4);
+
+            CreateColumnRules(context, col6, new (ValidationRuleType ruleType, string message)[]
+            {
+                new () {ruleType = ValidationRuleType.required, message = "City is required."}
+            });
+            context.ColumnMetadata.Update(col6);
+
+            CreateColumnRules(context, col7, new (ValidationRuleType ruleType, string message)[]
+            {
+                new () {ruleType = ValidationRuleType.required, message = "Country is required."}
+            });
+            context.ColumnMetadata.Update(col7);
             context.SaveChanges();
 
             context.ColumnMetadataApplications.Add(new ColumnMetadataApplication
@@ -86,19 +108,39 @@ public static class DBPreparation
                 {ApplicationId = application.Id, ColumnMetadataId = col3.Id});
             context.ColumnMetadataApplications.Add(new ColumnMetadataApplication
                 {ApplicationId = application.Id, ColumnMetadataId = col4.Id});
+            context.ColumnMetadataApplications.Add(new ColumnMetadataApplication
+                {ApplicationId = application.Id, ColumnMetadataId = col5.Id});
+            context.ColumnMetadataApplications.Add(new ColumnMetadataApplication
+                {ApplicationId = application.Id, ColumnMetadataId = col6.Id});
+            context.ColumnMetadataApplications.Add(new ColumnMetadataApplication
+                {ApplicationId = application.Id, ColumnMetadataId = col7.Id});
             context.SaveChanges();
 
-            var template = context.Templates.Add(new Template
+            context.Templates.Add(new Template
             {
-                TemplateOwner = "Bha", TemplateDisplayName = "TestTmpl-01",
+                TemplateOwner = "Bha", TemplateDisplayName = "Person Details Min",
                 Columns = new List<TemplateColumn>
                 {
                     new(){ Position = 1, ColumnMetadataId = col1.Id},
                     new(){ Position = 2, ColumnMetadataId = col2.Id},
                     new(){ Position = 3, ColumnMetadataId = col3.Id},
-                    new(){ Position = 3, ColumnMetadataId = col4.Id},
+                    new(){ Position = 4, ColumnMetadataId = col4.Id},
                 }
-            }).Entity;
+            });
+            context.Templates.Add(new Template
+            {
+                TemplateOwner = "Bha", TemplateDisplayName = "Person Details Medium",
+                Columns = new List<TemplateColumn>
+                {
+                    new(){ Position = 1, ColumnMetadataId = col1.Id},
+                    new(){ Position = 2, ColumnMetadataId = col2.Id},
+                    new(){ Position = 3, ColumnMetadataId = col3.Id},
+                    new(){ Position = 4, ColumnMetadataId = col4.Id},
+                    new(){ Position = 5, ColumnMetadataId = col5.Id},
+                    new(){ Position = 6, ColumnMetadataId = col6.Id},
+                    new(){ Position = 7, ColumnMetadataId = col7.Id},
+                }
+            });
             context.SaveChanges();
         }
         

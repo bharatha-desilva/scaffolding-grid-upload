@@ -7,7 +7,7 @@ import { TemplateDef } from './template-definition';
 })
 export class TemplateDataEditComponent implements OnInit {
     @Input()
-    template!: TemplateDef;
+    template!: TemplateDef | null;
 
     @Input()
     dataSource!: any[];
