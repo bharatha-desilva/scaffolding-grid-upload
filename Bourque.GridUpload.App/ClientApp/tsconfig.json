@@ -1,6 +1,12 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "paths": {
+      "@bds/grid-upload": [
+        "dist/bds/grid-upload/bds-grid-upload",
+        "dist/bds/grid-upload"
+      ]
+    },
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
