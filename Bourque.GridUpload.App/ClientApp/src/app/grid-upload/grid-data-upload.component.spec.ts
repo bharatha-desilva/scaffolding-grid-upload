@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { GridUploadComponent } from './grid-upload.component';
+import { GridDataUploadComponent } from './grid-data-upload.component';
 
-describe('GridUploadComponent', () => {
-  let component: GridUploadComponent;
-  let fixture: ComponentFixture<GridUploadComponent>;
+describe('GridDataUploadComponent', () => {
+  let component: GridDataUploadComponent;
+  let fixture: ComponentFixture<GridDataUploadComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ GridUploadComponent ]
+      declarations: [ GridDataUploadComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(GridUploadComponent);
+    fixture = TestBed.createComponent(GridDataUploadComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

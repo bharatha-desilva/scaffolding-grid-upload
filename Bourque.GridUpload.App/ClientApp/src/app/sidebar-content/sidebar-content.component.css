@@ -1,0 +1,13 @@
+.sub-navigation-title {
+  text-decoration: none;
+}
+
+mat-expansion-panel .active {
+  background: #4e4d4d;
+}
+
+.text-wrap {
+  word-break: break-word;
+  overflow-wrap: break-word;
+  margin-top: 0;
+}

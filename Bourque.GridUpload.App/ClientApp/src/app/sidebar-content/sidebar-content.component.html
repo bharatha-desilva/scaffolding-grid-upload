@@ -1,0 +1,53 @@
+<button bdsSidebarItem title="Home">
+  <fa-icon bdsSidebarItemIcon [fixedWidth]="true" [icon]="iconHome"></fa-icon>
+  <span bdsSidebarItemText>Home</span>
+</button>
+<mat-expansion-panel
+  bdsSidebarMenu
+  [hideToggle]="true"
+  class="bg-transparent"
+  style="color: #ced4da"
+>
+  <mat-expansion-panel-header expandedHeight="100%" collapsedHeight="100%">
+    <div bdsSidebarItem title="Grid Upload">
+      <div>
+        <fa-icon bdsSidebarItemIcon [icon]="iconfileUpload" [fixedWidth]="true"></fa-icon>
+        <span bdsSidebarItemText>Grid Upload</span>
+        <fa-icon
+          [icon]="iconCaretRight"
+          transform="rotate-45 down-4 right-9 shrink-3"
+        ></fa-icon>
+      </div>
+    </div>
+  </mat-expansion-panel-header>
+  <a
+    class="sub-navigation-title"
+    bdsSidebarItem
+    title="upload"
+    [routerLink]="'grid-upload/upload'"
+    [routerLinkActive]="'active'"
+  >
+    <fa-icon bdsSidebarItemIcon [icon]="iconfile" [fixedWidth]="true" size="2x"></fa-icon>
+    <p class="text-wrap">Grid Upload</p>
+  </a>
+  <a
+    class="sub-navigation-title"
+    bdsSidebarItem
+    title="grid demo"
+    [routerLink]="'grid-upload/dev-extreme'"
+    [routerLinkActive]="'active'"
+  >
+    <fa-icon bdsSidebarItemIcon [icon]="iconfile" [fixedWidth]="true" size="2x"></fa-icon>
+    <p class="text-wrap">Grid Demo</p>
+  </a>
+  <a
+    class="sub-navigation-title"
+    bdsSidebarItem
+    title="upload"
+    [routerLink]="'grid-upload/fetch-data'"
+    [routerLinkActive]="'active'"
+  >
+    <fa-icon bdsSidebarItemIcon [icon]="iconChart" [fixedWidth]="true" size="2x"></fa-icon>
+    <p class="text-wrap">Fetch Data</p>
+  </a>
+</mat-expansion-panel>

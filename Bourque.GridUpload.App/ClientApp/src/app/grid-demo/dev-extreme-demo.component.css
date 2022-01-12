@@ -1,0 +1,22 @@
+.container-main {
+  height: 60px;
+  margin-bottom: 30px;
+}
+.container-template {
+  width: 49%;
+  float: left;
+}
+.template-text {
+  height: 100%;
+}
+.container-data {
+  width: 49%;
+  float: right;
+  margin-left: 2%;
+}
+.data-text {
+}
+
+.grid {
+  height: 100%;
+}

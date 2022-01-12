@@ -1,0 +1,247 @@
+@use '~@angular/material' as mat;
+/* You can add global styles to this file, and also import other style files */
+
+@import '~@bds/ui/assets/scss/rt/css/material-theme-light.scss';
+
+.bds-readonly-wrapper {
+& .mat-select-disabled .mat-select-value,
+&.mat-checkbox-disabled .mat-checkbox-label {
+   color: rgba(0, 0, 0, 0.87);
+ }
+
+&.mat-checkbox-disabled:not(.mat-checkbox-checked) .mat-checkbox-frame {
+   border-color: rgba(0, 0, 0, 0.54);
+ }
+
+/* Does not work with rgba, so translate rgba(0, 0, 0, 0.54) */
+&.mat-checkbox-disabled.mat-checkbox-indeterminate .mat-checkbox-background,
+&.mat-checkbox-disabled.mat-checkbox-checked .mat-checkbox-background {
+   background-color: rgb(138, 138, 138);
+ }
+
+&.mat-form-field-appearance-fill.mat-form-field-disabled .mat-form-field-label {
+   color: rgba(0, 0, 0, 0.6);
+ }
+
+&.mat-form-field-appearance-fill.mat-form-field-disabled .mat-form-field-flex {
+   background-color: rgba(0, 92, 146, 0.05);
+ }
+
+&.mat-form-field-appearance-fill.mat-form-field-disabled .mat-form-field-underline::before {
+   background-color: rgba(0, 0, 0, 0.42);
+ }
+}
+
+@import url(https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Mono:300&amp;display=swap);
+@import '~@bds/ui/assets/scss/rt/css/_variables.scss';
+@import '~@bds/ui/assets/scss/rt/css/_mixins.scss';
+
+$font-family: mat.font-family($default-config);
+
+body {
+  font-family: $font-family;
+  margin: 0;
+}
+
+body > iframe {
+  border-width: 0;
+}
+
+button:focus {
+  outline: none !important;
+}
+
+.fill-remaining-space {
+  flex: 1 1 auto;
+}
+
+.bds-mat-dense-button {
+&.mat-button-toggle-appearance-standard .mat-button-toggle-label-content {
+   line-height: 40px;
+ }
+}
+
+.bds-mat-dense-form-field {
+&.mat-form-field-appearance-fill {
+&.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label,
+&.mat-form-field-can-float
+ .mat-input-server:focus
+ + .mat-form-field-label-wrapper
+ .mat-form-field-label {
+   transform: translateY(-0.40375em) scale(0.66);
+ }
+
+.mat-form-field-flex {
+  padding-top: 0;
+}
+
+.mat-form-field-subscript-wrapper {
+  margin-top: calc(12px - 0.75 * 1rem);
+  line-height: 16px;
+}
+
+.mat-form-field-infix {
+  padding: 0.125em 0 0.375em;
+}
+}
+}
+
+.bds-mat-dense-form-field {
+&.mat-form-field-appearance-outline {
+.mat-form-field-label-wrapper {
+  top: -1.24375em;
+  padding-top: 1.24375em;
+}
+
+&.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label,
+&.mat-form-field-can-float
+ .mat-input-server:focus
+ + .mat-form-field-label-wrapper
+ .mat-form-field-label {
+   transform: translateY(-1.24375em) scale(0.75);
+ }
+
+.mat-form-field-subscript-wrapper {
+  margin-top: calc(12px - 0.75 * 1rem);
+  line-height: 16px;
+}
+
+.mat-form-field-infix {
+  padding: 0.5em 0;
+}
+}
+}
+
+.bds-mat-dense-form-field {
+&.mat-form-field-type-mat-select,
+&.mat-form-field-type-mat-input {
+&.mat-form-field {
+   font-size: 16px;
+ }
+
+& .mat-form-field-infix {
+    height: 39px;
+
+& .mat-input-element {
+    font-size: 16px;
+  }
+}
+}
+}
+
+.bds-error-message {
+  font-weight: bold;
+  color: $danger;
+}
+
+.dirty-indicator {
+  display: none;
+}
+
+.ng-dirty .dirty-indicator {
+  display: inline;
+}
+
+.ng-pristine .dirty-indicator {
+  display: none;
+}
+
+.data {
+  font-family: 'Roboto Mono', 'Courier New', Courier, monospace;
+  color: $bourque-blue;
+  text-transform: uppercase;
+}
+
+.mini-header {
+  border-bottom: 1px solid black;
+}
+
+.dtable {
+  display: table;
+}
+
+.dtrow {
+  display: table-row;
+}
+
+.dtcell {
+  display: table-cell;
+  padding-right: 1rem;
+}
+
+.nyi:after {
+  display: inline-block;
+  content: 'NYI';
+  padding-left: 0.83em;
+  vertical-align: super;
+  font-size: 0.83em;
+  font-style: italic;
+}
+
+.mini-headline {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.87);
+  padding-bottom: 4px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+.mat-input-element:disabled,
+.mat-form-field-type-mat-native-select.mat-form-field-disabled .mat-form-field-infix::after {
+  color: rgba(0, 0, 0, 0.78);
+}
+
+.mat-form-field-appearance-fill.mat-form-field-disabled .mat-form-field-label {
+  color: rgba(0, 0, 0, 0.78);
+}
+
+.bds-dx-hint {
+  line-height: 16px;
+  min-height: 20px;
+  font-size: 75%;
+  padding-left: 12px;
+  position: relative;
+}
+
+.small-field.bds-mat-dense-form-field {
+& .mat-form-field-infix {
+    height: 32px;
+    font-size: 13px;
+    line-height: 16px;
+
+& .mat-input-element {
+    font-size: 13px;
+    line-height: 16px;
+  }
+}
+}
+
+.disabled-as-readonly.mat-form-field-disabled {
+&.mat-form-field-appearance-fill {
+& .mat-form-field-flex {
+    background-color: rgba(0, 92, 146, 0.05);
+
+& .mat-select {
+&.mat-select-disabled .mat-select-value {
+   color: rgba(0, 0, 0, 0.87);
+ }
+}
+
+& .mat-form-field-label-wrapper .mat-form-field-label {
+    color: rgba(0, 0, 0, 0.6);
+  }
+}
+
+& .mat-form-field-underline::before {
+    background-color: rgba(0, 0, 0, 0.42);
+  }
+}
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+}
