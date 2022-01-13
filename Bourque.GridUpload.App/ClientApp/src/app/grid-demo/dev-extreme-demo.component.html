@@ -1,0 +1,28 @@
+<div id="events" class="container-main">
+    <div class="container-template">
+        <div class="caption">Template JSON</div>
+        <ng-select
+            [items]="backendTemplates$ | async"
+            bindLabel="templateDisplayName"
+            autofocus
+            bindValue="id"
+            [(ngModel)]="selectedBackendTemplateId"
+        >
+        </ng-select>
+    </div>
+    <div class="container-data">
+        <div class="caption">Data Set JSON</div>
+        <input type="file" (change)="onChange($event)" />
+    </div>
+</div>
+<dx-button id="loadButton" text="Load" (onClick)="loadData()"></dx-button>
+<span style="margin-left: 30px; background-color: red; color: antiquewhite" *ngIf="hasErrors">{{
+    selectedError
+}}</span>
+
+<app-template-data-edit
+    class="grid"
+    [template]="template | async"
+    [dataSource]="dataSource"
+    (onRowSelect)="onRowSelect($event)"
+></app-template-data-edit>
