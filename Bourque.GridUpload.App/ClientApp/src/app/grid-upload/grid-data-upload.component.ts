@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { NgxFileDropEntry, FileSystemFileEntry, FileSystemDirectoryEntry } from 'ngx-file-drop';
 import * as XLSX from 'xlsx';
 
 type AOA = any[][];
@@ -10,7 +10,7 @@ type AOA = any[][];
   styleUrls: ['./grid-data-upload.component.css']
 })
 export class GridDataUploadComponent implements OnInit {
-
+  public files: NgxFileDropEntry[] = [];
   data: AOA = [];
   wopts: XLSX.WritingOptions = { bookType: 'xlsx', type: 'array' };
   fileName = 'SheetJS.xlsx';
@@ -64,5 +64,67 @@ export class GridDataUploadComponent implements OnInit {
     const wb: XLSX.WorkBook = XLSX.utils.book_new();
     XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
     XLSX.writeFile(wb, this.fileNameCSV);
+  }
+
+  public dropped(files: NgxFileDropEntry[]) {
+    this.files = files;
+    for (const droppedFile of files) {
+
+      // Is it a file?
+      if (droppedFile.fileEntry.isFile) {
+        const fileEntry = droppedFile.fileEntry as FileSystemFileEntry;
+        fileEntry.file((file: File) => {
+
+          // Here you can access the real file
+          console.log(droppedFile.relativePath, file);
+
+          /**
+          // You could upload it like this:
+          const formData = new FormData()
+          formData.append('logo', file, relativePath)
+
+          // Headers
+          const headers = new HttpHeaders({
+            'security-token': 'mytoken'
+          })
+
+          this.http.post('https://mybackend.com/api/upload/sanitize-and-save-logo', formData, { headers: headers, responseType: 'blob' })
+          .subscribe(data => {
+            // Sanitized logo returned from backend
+          })
+          **/
+
+          const reader: FileReader = new FileReader();
+          reader.onload = (e: any) => {
+              /* read workbook */
+              const bstr: string = e.target.result;
+              const wb: XLSX.WorkBook = XLSX.read(bstr, { type: 'binary' });
+
+              /* grab first sheet */
+              const wsname: string = wb.SheetNames[0];
+              const ws: XLSX.WorkSheet = wb.Sheets[wsname];
+
+              /* save data */
+              this.data = <AOA>XLSX.utils.sheet_to_json(ws, { header: 1 });
+              console.log('data:', this.data);
+
+          };
+          reader.readAsBinaryString(file);
+
+        });
+      } else {
+        // It was a directory (empty directories are added, otherwise only files)
+        const fileEntry = droppedFile.fileEntry as FileSystemDirectoryEntry;
+        console.log(droppedFile.relativePath, fileEntry);
+      }
+    }
+  }
+
+  public fileOver(event: any){
+    console.log(event);
+  }
+
+  public fileLeave(event: any){
+    console.log(event);
   }
 }

@@ -29,6 +29,7 @@ import { HomeScreenModule } from './screens/home-screen/home-screen.module';
 import { AppRoutingModule } from './app-routing.module';
 import { GridDataUploadComponent } from './grid-upload/grid-data-upload.component';
 import { GridUploadOptions } from './models/grid-upload-options';
+import { NgxFileDropModule } from 'ngx-file-drop';
 
 @NgModule({
   declarations: [
@@ -62,7 +63,8 @@ import { GridUploadOptions } from './models/grid-upload-options';
     DevExtremeModule,
     NgSelectModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    NgxFileDropModule
   ],
   providers: [
     { provide: BDSINTERNAL_API_BASE_URL, useValue: environment.bdsInternalApiUri },
