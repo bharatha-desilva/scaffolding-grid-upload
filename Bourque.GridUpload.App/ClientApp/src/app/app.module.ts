@@ -34,7 +34,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
     ],
     imports: [
         BrowserModule,
-        AuthorizeModule,
+        //AuthorizeModule,  TODO
         BdsUiModule,
         BdsUiSidebarModule,
         BrowserAnimationsModule,

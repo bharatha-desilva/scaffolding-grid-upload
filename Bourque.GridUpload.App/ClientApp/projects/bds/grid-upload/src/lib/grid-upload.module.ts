@@ -16,13 +16,13 @@ const routes: Routes = [
         children: [
             {
                 path: 'upload',
-                //canActivate: [AccessGuard],
+                //canActivate: [AccessGuard], TODO
                 data: { targetPrivilege: Privilege.TEMPLATE_UPLOAD },
                 component: GridDataUploadComponent,
             },
             {
                 path: 'fetch-data',
-                //canActivate: [AccessGuard],
+                //canActivate: [AccessGuard],  TODO
                 data: { targetPrivilege: Privilege.TEMPLATE_UPLOAD },
                 component: FetchDataComponent,
             },

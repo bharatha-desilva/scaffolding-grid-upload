@@ -8,7 +8,7 @@ import { AuthorizeGuard } from '@bds/auth';
 const routes: Routes = [
     {
         path: 'home',
-        //canActivate: [AuthorizeGuard],
+        //canActivate: [AuthorizeGuard],  TODO
         component: HomeScreenComponent,
     },
 ];
