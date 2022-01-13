@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, CanActivateChild, Router } from '@angular/router';
-import {Observable, of} from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { AccessService } from './access.service';
 import { tap } from 'rxjs/operators';
 
@@ -18,7 +18,7 @@ export class AccessGuard implements CanActivate, CanActivateChild {
                 }
             }),
         );*/
-      return of(true);
+        return of(true);
     }
 
     canActivateChild(childRoute: ActivatedRouteSnapshot): Observable<boolean> {

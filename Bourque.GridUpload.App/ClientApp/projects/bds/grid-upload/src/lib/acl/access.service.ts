@@ -1,11 +1,11 @@
-import {Injectable} from '@angular/core';
-import {BehaviorSubject, Observable, of} from 'rxjs';
-import {filter, map} from 'rxjs/operators';
-import {AuthorizeService} from '@bds/auth';
-import {Role, Roles} from '../models/role';
-import {Privilege} from '../models/privilege';
-import {GridUploadOptions} from '../models/grid-upload-options';
-import {Router} from '@angular/router';
+import { Injectable } from '@angular/core';
+import { BehaviorSubject, Observable, of } from 'rxjs';
+import { filter, map } from 'rxjs/operators';
+import { AuthorizeService } from '@bds/auth';
+import { Role, Roles } from '../models/role';
+import { Privilege } from '../models/privilege';
+import { GridUploadOptions } from '../models/grid-upload-options';
+import { Router } from '@angular/router';
 
 @Injectable({
     providedIn: 'root',
@@ -47,7 +47,7 @@ export class AccessService {
             map((token) => jwtDecode<{ role: Role }>(token).role),
             map((role) => (role ? role : Role.USER)),
         );*/
-      return of(Role.USER);
+        return of(Role.USER);
     }
 
     hasPrivilege(targetPrivilege: Privilege): Observable<boolean> {
