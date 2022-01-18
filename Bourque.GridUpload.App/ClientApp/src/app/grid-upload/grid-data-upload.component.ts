@@ -70,7 +70,6 @@ export class GridDataUploadComponent implements OnInit {
     this.files = files;
     for (const droppedFile of files) {
 
-      // Is it a file?
       if (droppedFile.fileEntry.isFile) {
         const fileEntry = droppedFile.fileEntry as FileSystemFileEntry;
         fileEntry.file((file: File) => {
@@ -107,6 +106,13 @@ export class GridDataUploadComponent implements OnInit {
               /* save data */
               this.data = <AOA>XLSX.utils.sheet_to_json(ws, { header: 1 });
               console.log('data:', this.data);
+              this.data.map((res) => {
+                if (res[0] === 'no') {
+                  console.log(res[0]);
+                } else {
+                  console.log(res[0]);
+                }
+              });
 
           };
           reader.readAsBinaryString(file);

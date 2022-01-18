@@ -1,51 +1,62 @@
 <div class="row m-3">
-  <h4>Example - Importing and Exporting</h4>
-  <div class="col-md-6">
-    <div class="container">
-      <input
-        type="file"
-        (change)="onFileChange($event)"
-        accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"
-        multiple="false"
-      />
-      <div class="center mt-3">
-        <ngx-file-drop dropZoneLabel="Drop files here" (onFileDrop)="dropped($event)"
-        (onFileOver)="fileOver($event)" (onFileLeave)="fileLeave($event)">
-            <ng-template ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
-              Drag and Drop a File to Get Started
-              <button type="button" class="ml-2" (click)="openFileSelector()">Select File</button>
-            </ng-template>
-        </ngx-file-drop>
-        <div class="upload-table mt-2">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                    </tr>
-                </thead>
-                <tbody class="upload-name-style">
-                    <tr *ngFor="let item of files; let i=index">
-                        <td><strong>{{ item.relativePath }}</strong></td>
+    <h4>Example - Importing and Exporting</h4>
+    <div class="col-md-6">
+        <div class="container">
+          <h5>Using file selection</h5>
+            <input
+                type="file"
+                (change)="onFileChange($event)"
+                accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"
+                multiple="false"
+            />
+            <div class="center mt-3">
+              <h5>Using Drag and Drop</h5>
+                <ngx-file-drop
+                    dropZoneLabel="Drop files here"
+                    (onFileDrop)="dropped($event)"
+                    (onFileOver)="fileOver($event)"
+                    (onFileLeave)="fileLeave($event)"
+                    accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"
+                >
+                    <ng-template ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
+                        Drag and Drop a File to Get Started
+                        <button type="button" class="ml-2" (click)="openFileSelector()">
+                            Select File
+                        </button>
+                    </ng-template>
+                </ngx-file-drop>
+                <div class="upload-table mt-2">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                            </tr>
+                        </thead>
+                        <tbody class="upload-name-style">
+                            <tr *ngFor="let item of files; let i = index">
+                                <td>
+                                    <strong>{{ item.relativePath }}</strong>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <table class="sjs-table mt-2">
+                <tbody>
+                    <tr *ngFor="let row of data">
+                        <td class="pr-1" *ngFor="let val of row">
+                            {{ val }}
+                        </td>
                     </tr>
                 </tbody>
             </table>
         </div>
     </div>
-      <table class="sjs-table mt-2">
-        <tbody>
-        <tr *ngFor="let row of data">
-          <td class="pr-1" *ngFor="let val of row">
-            {{ val }}
-          </td>
-        </tr>
-        </tbody>
-      </table>
+    <div class="col-md-6">
+        <button mat-stroked-button color="primary" (click)="export()">Export</button>
+        <button class="ml-1" mat-stroked-button color="primary" (click)="exportCSV()">
+            Export as CSV
+        </button>
     </div>
-  </div>
-  <div class="col-md-6">
-    <button mat-stroked-button color="primary" (click)="export()">Export</button>
-    <button class="ml-1" mat-stroked-button color="primary" (click)="exportCSV()">
-      Export as CSV
-    </button>
-  </div>
 </div>
